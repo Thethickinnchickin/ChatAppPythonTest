@@ -1,0 +1,137 @@
+
+.main-card {
+  background-color: blue;
+  min-width: 400px;
+  min-height: 200px;
+  border-radius: 10px;
+}
+.main-card-red {
+  background-color: rgba(255, 0, 0, 0.833);
+  height: 716px;
+  width: 340px;
+}
+
+.welcome-text {
+  font-size: 50px;
+}
+
+
+.enter-name {
+  padding: 0;
+}
+
+.join {
+  background-color: rgba(218, 101, 34, 0.423);
+  color: white;
+  font-family: 'Muli', sans-serif; 
+}
+
+.join:not([disabled]) {
+  background-color: rgb(218, 101, 34);
+  color: white;
+}
+
+.join:not([disabled]):hover {
+  background-color: rgba(218, 101, 34, 0.423);
+}
+
+.title-card {
+  background-color: blue;
+  height: auto;
+  border-radius: 0px 10px 10px 10px;
+}
+
+.custom-container {
+  padding-right: 0;
+  padding-left: 0;
+  width: 100vw; /* You may want to adjust this if needed */
+}
+
+.send-button {
+  background-color: rgb(218, 101, 34);
+  color: white;
+  border-radius: 10px;
+  height: 50px;
+  width: 20%;
+}
+
+.send-input {
+  height: 50px;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.chatbox {
+  min-width: 100px;
+  background-color: #707070;
+  min-height: 400px;
+  max-height: 400px;
+  border-radius: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.from {
+  background-color: orangered;
+  width: auto;
+  float: left;
+  overflow-x: hidden; /* Hide horizontal overflow */
+  overflow-y: hidden; /* Enable vertical scrolling if necessary */
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+  margin-left: 10%;
+  word-wrap: break-word; /* Break long words to avoid overflow */
+  overflow-wrap: break-word; /* Enable overflow wrap */
+  max-width: 50%; /* Set a maximum width of 50% for 'from' messages */
+}
+
+.from-text {
+  color: white;
+  font-size: 12px;
+}
+
+.fuck {
+  background-color: rgb(79, 109, 219);
+  width: auto;
+  float: left;
+  width: auto;
+  overflow-x: hidden; /* Hide horizontal overflow */
+  overflow-y: auto; /* Enable vertical scrolling if necessary */
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+  word-wrap: break-word; /* Break long words to avoid overflow */
+  overflow-wrap: break-word; /* Enable overflow wrap */
+  max-width: 100%;
+}
+
+
+.input-container {
+  height: 100px;
+}
+
+.message-container {
+  overflow-x: hidden;
+}
+
+/* Hide default scrollbars */
+.chatbox::-webkit-scrollbar {
+  width: 0.5rem; /* You can adjust the width as needed */
+}
+
+/* Track */
+.chatbox::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background color of the scrollbar track */
+}
+
+/* Handle */
+.chatbox::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar handle */
+  border-radius: 4px; /* Rounded corners for the scrollbar handle */
+}
+
+/* Handle on hover */
+.chatbox::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
