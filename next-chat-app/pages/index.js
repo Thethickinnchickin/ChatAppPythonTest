@@ -13,8 +13,12 @@ const Chat = () => {
 
   useEffect(() => {
     // Connect to the server via WebSocket
-    const socket = io(process.env.NEXT_PUBLIC_VERCEL_URL, {
+    const socket = io(`wss://${process.env.NEXT_PUBLIC_VERCEL_URL}`, {
       transports: ["websocket"],
+    });
+    
+    socket.on('connect_error', (error) => {
+      console.error('WebSocket connection error:', error);
     });
     
     setSocket(socket);
