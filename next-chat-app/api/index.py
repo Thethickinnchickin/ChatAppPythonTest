@@ -149,5 +149,5 @@ def handle_message(data):
     {'message': message, 'username' : username, 'room': room_name}, room=room_name)
 
 if __name__ == '__main__':
-    print("Server is running on http://localhost:8000")
-    socketio.run(app, debug=True, host='localhost', port=8000) 
+    print("Server is running on 0.0.0.0")
+    socketio.run(app, debug=True, host='0.0.0.0', port=8000) 

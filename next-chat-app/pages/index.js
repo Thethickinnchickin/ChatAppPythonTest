@@ -13,7 +13,7 @@ const Chat = () => {
 
   useEffect(() => {
     // Connect to the server via WebSocket
-    const socket = io("https://chat-app-python-test-d0y1eww55-thethickinnchickin.vercel.app", {
+    const socket = io(process.env.NEXT_PUBLIC_VERCEL_URL, {
       transports: ["websocket"],
     });
     
