@@ -9,7 +9,7 @@ eventlet.monkey_patch()
 
 app = Flask(__name__)
 
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, resources={r"/socket.io/*": {"origins": "https://chat-app-python-test.vercel.app"}})
 # Allow connections from http://localhost:3000
 socketio = SocketIO(app, cors_allowed_origins="*")
 

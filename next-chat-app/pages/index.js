@@ -13,13 +13,15 @@ const Chat = () => {
 
   useEffect(() => {
     // Connect to the server via WebSocket
-    const socket = io(process.env.NEXT_PUBLIC_VERCEL_URL); // Replace with your server's URL
+    const socket = io("https://chat-app-python-test-d0y1eww55-thethickinnchickin.vercel.app", {
+      transports: ["websocket"],
+    });
+    
     setSocket(socket);
 
     // Listen for incoming messages
     socket.on('user_message', (data) => {
       if(data.room) {
-        console.log("heyyeyeyye")
         setCurrentRoom(`${data.room}`)
       }
 
