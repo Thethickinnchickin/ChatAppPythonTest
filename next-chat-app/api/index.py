@@ -9,8 +9,7 @@ eventlet.monkey_patch()
 
 app = Flask(__name__)
 
-CORS(app)
-
+CORS(app, resources={r"/*": {"origins": "*"}})
 # Allow connections from http://localhost:3000
 socketio = SocketIO(app, cors_allowed_origins="*")
 
