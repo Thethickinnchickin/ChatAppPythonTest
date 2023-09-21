@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request
+from waitress import serve
 from flask_socketio import SocketIO, join_room, leave_room
 import random
+import eventlet
+
+eventlet.monkey_patch()
 
 app = Flask(__name__)
 
@@ -15,6 +19,13 @@ connected_users = [
 
 # Create a dictionary to store mappings of SIDs to rooms
 sid_to_room = {}
+
+# Function to change the is_connected value
+def change_is_connected(username, new_is_connected):
+    for user in connected_users:
+        if user['sid'] == username:
+            user['is_connected'] = new_is_connected
+            break  # Exit the loop once the user is found
 
 def get_rand_user(username):
     print(connected_users)
@@ -72,6 +83,9 @@ def handle_join_room_random(data):
         rand_user = get_user(random_user)
         join_room(room_name)
         join_room(room_name, sid=random_user)
+        change_is_connected(username, True)
+        change_is_connected(random_user, True)
+
         socketio.emit('join_room_for_random', {'room': room_name, 'other_user': user, 'sid': username}, room=random_user)
         socketio.emit('join_room_for_user', {'room': room_name, 'other_user': rand_user, 'sid': random_user}, room=username)
 
@@ -133,4 +147,5 @@ def handle_message(data):
     {'message': message, 'username' : username, 'room': room_name}, room=room_name)
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    print("Server is running on http://localhost:8000")
+    socketio.run(app, debug=True, host='localhost', port=8000) 
