@@ -9,7 +9,7 @@ eventlet.monkey_patch()
 app = Flask(__name__)
 
 # Allow connections from http://localhost:3000
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="chat-app-python-test-36mzm2uj9-thethickinnchickin.vercel.app")
 
 # Dictionary to store active chat rooms
 chat_rooms = {}
