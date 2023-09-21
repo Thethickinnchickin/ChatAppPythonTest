@@ -2,11 +2,14 @@ from flask import Flask, render_template, request
 from waitress import serve
 from flask_socketio import SocketIO, join_room, leave_room
 import random
+from flask_cors import CORS
 import eventlet
 
 eventlet.monkey_patch()
 
 app = Flask(__name__)
+
+CORS(app)
 
 # Allow connections from http://localhost:3000
 socketio = SocketIO(app, cors_allowed_origins="*")
