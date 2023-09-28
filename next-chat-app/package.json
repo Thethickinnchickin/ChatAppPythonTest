@@ -7,7 +7,7 @@
     "build": "next build",
     "start-nextjs": "next dev",
     "start-api": "cd api && python index.py",
-    "start": "concurrently \"npm run start-nextjs\" \"npm run start-api\"",
+    "start": "next start",
     "lint": "next lint",
     "matt": "next dev"
   },

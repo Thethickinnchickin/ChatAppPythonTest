@@ -2,9 +2,12 @@
 
 # dependencies
 /node_modules
+/api/dependencies
 /.pnp
 .pnp.js
 api/venv
+
+api/*.zip
 
 # testing
 /coverage

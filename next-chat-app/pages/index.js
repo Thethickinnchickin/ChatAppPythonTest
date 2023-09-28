@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import io from 'socket.io-client';
 
+
+
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
@@ -13,13 +15,20 @@ const Chat = () => {
 
   useEffect(() => {
     // Connect to the server via WebSocket
-    const socket = io(`wss://${process.env.NEXT_PUBLIC_VERCEL_URL}`, {
+    const socket = io(`http://52.40.207.119`, {
       transports: ["websocket"],
     });
     
     socket.on('connect_error', (error) => {
       console.error('WebSocket connection error:', error);
     });
+
+    socket.on('fuck', (data) => {
+      console.log("fuck " + data?.username)
+    })
+    socket.on('fuck2', (data) => {
+      console.log("fuck2 " + data?.username)
+    })
     
     setSocket(socket);
 
@@ -28,7 +37,6 @@ const Chat = () => {
       if(data.room) {
         setCurrentRoom(`${data.room}`)
       }
-
 
       setMessages((prevMessages) => [...prevMessages,
          {'message':data.message,
@@ -48,27 +56,44 @@ const Chat = () => {
     });
 
     socket.on('join_room_for_random', (data) => {
-        setMessages([])
-        socket.emit('join_room',  {'room': data.room, 'username': username})
-        setRandomUser(data.other_user)
-        setRandomUserID(data.sid)
-        setCurrentRoom(data.room)
+      console.log("RANDOM")
+      setMessages([])
+      socket.emit('join_room',  {'room': data.room, 'username': username})
+      setRandomUser(data.other_user)
+      setRandomUserID(data.sid)
+      setCurrentRoom(data.room)
     });
 
     socket.on('join_room_for_user', (data) => {
+      console.log("USER")
+      console.log(`${data.other_user} 
+      ${data.sid}
+      ${data.room}`)
       setMessages([])
       setRandomUser(data.other_user)
       setRandomUserID(data.sid)
       setCurrentRoom(data.room)
-  });
+    });
 
-  socket.on('user_left' , (data) => {
-    setRandomUser('');
-    setCurrentRoom('');
-    setRandomUserID('');
-    setMessages([])
-    console.log("Hey Matt")
-  })
+    socket.on('user_left' , (data) => {
+      setRandomUser('');
+      setCurrentRoom('');
+      setRandomUserID('');
+      setMessages([])
+    })
+
+  
+    socket.on('connect', () => {
+      console.log('WebSocket connected successfully');
+    });
+
+    socket.on('connect_error', (error) => {
+      console.error('WebSocket connection errorsz:', error);
+    });
+
+    socket.on('disconnect', () => {
+      console.log('WebSocket disconnected');
+    });
 
 
     // Cleanup when component unmounts
@@ -95,21 +120,7 @@ const Chat = () => {
     }
   };
 
-  // const connect = (room) => {
-  //   // Emit a 'leave_room' event to leave the current room
-  //   socket.emit('leave_room', { room: currentRoom, username: username });
 
-  //   // Join the selected room
-  //   socket.emit('join_room', { room, username:  username});
-
-  //   // Update the current room state
-  //   setCurrentRoom(room);
-
-  //   // Clear the message list for the new room
-  //   setMessages([]);
-
-  //   setIsUsernameSet(true)
-  // };
   const connect = async () => {
     // Emit a 'connect_to' event with the username 'Matt'
     await socket.emit('connect_to', { username: username });
@@ -119,12 +130,10 @@ const Chat = () => {
   const random = () => {
 
     if(randomUser) {
-      console.log("1")
       console.log(randomUserID)
       socket.emit('join_room_random', {'username': username,
       'current_room': currentRoom, 'sid': randomUserID});
     } else {
-      console.log("2")
       socket.emit('join_room_random', {'username': username});
     }
     
