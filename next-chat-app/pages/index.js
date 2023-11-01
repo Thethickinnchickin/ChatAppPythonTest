@@ -15,9 +15,11 @@ const Chat = () => {
 
   useEffect(() => {
     // Connect to the server via WebSocket
-    const socket = io(`http://52.40.207.119`, {
-      transports: ["websocket"],
+    const socket = io('http://54.188.84.220', {
+      transports: ['websocket'],
     });
+    
+    
     
     socket.on('connect_error', (error) => {
       console.error('WebSocket connection error:', error);
