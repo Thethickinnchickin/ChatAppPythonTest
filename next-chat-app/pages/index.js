@@ -159,38 +159,38 @@ const Chat = () => {
                   }}>Welcome To</h1>
               <h1 style={{
 
-          fontFamily: 'MS Gothic', // Set the font-family to 'MS Gothic'
-          fontWeight: 'bold', // Set the font-weight to 'bold'
-          fontStyle: 'italic',
-          fontSize: '21px'
-          // Set the font-style to 'italic'
+                fontFamily: 'MS Gothic', // Set the font-family to 'MS Gothic'
+                fontWeight: 'bold', // Set the font-weight to 'bold'
+                fontStyle: 'italic',
+                fontSize: '21px'
+                // Set the font-style to 'italic'
               }} >Random Chatter</h1>
               <h1  style={{
 
-fontFamily: 'Calibri', // Set the font-family to 'MS Gothic'
-fontWeight: 'bold', // Set the font-weight to 'bold'
-fontStyle: 'italic',
-fontSize: '51px'
-// Set the font-style to 'italic'
-    }} >Username: {username}</h1>
+                fontFamily: 'Calibri', // Set the font-family to 'MS Gothic'
+                fontWeight: 'bold', // Set the font-weight to 'bold'
+                fontStyle: 'italic',
+                fontSize: '51px'
+                // Set the font-style to 'italic'
+              }} >Username: {username}</h1>
               <h1  style={{backgroundColor: 'green',
 
-fontFamily: 'Calibri', // Set the font-family to 'MS Gothic'
-fontWeight: 'bold', // Set the font-weight to 'bold'
-fontStyle: 'italic',
-fontSize: '31px'
-// Set the font-style to 'italic'
-    }}>You are connected To: {randomUser}</h1>
-                <div className="room-buttons my-3">
-                  <button style={{
+                fontFamily: 'Calibri', // Set the font-family to 'MS Gothic'
+                fontWeight: 'bold', // Set the font-weight to 'bold'
+                fontStyle: 'italic',
+                fontSize: '31px'
+                // Set the font-style to 'italic'
+              }}>You are connected To: {randomUser}</h1>
+                  <div className="room-buttons my-3">
+                    <button style={{
 
-fontFamily: 'Calibri', // Set the font-family to 'MS Gothic'
-fontWeight: 'bold', // Set the font-weight to 'bold'
-fontStyle: 'italic',
-fontSize: '31px',
-borderRadius: '10px'
-// Set the font-style to 'italic'
-    }}  className='join' onClick={() => random()}>Join Random </button>
+                  fontFamily: 'Calibri', // Set the font-family to 'MS Gothic'
+                  fontWeight: 'bold', // Set the font-weight to 'bold'
+                  fontStyle: 'italic',
+                  fontSize: '31px',
+                  borderRadius: '10px'
+                  // Set the font-style to 'italic'
+              }}  className='join' onClick={() => random()}>Join Random </button>
                 </div>
 
               </div>
@@ -200,12 +200,12 @@ borderRadius: '10px'
           <div className='row'>
             <p className='float-left'  style={{
 
-fontFamily: 'MS Gothic', // Set the font-family to 'MS Gothic'
-fontWeight: 'bold', // Set the font-weight to 'bold'
-fontStyle: 'italic',
-fontSize: '21px'
-// Set the font-style to 'italic'
-    }} >Random Chatter</p>
+            fontFamily: 'MS Gothic', // Set the font-family to 'MS Gothic'
+            fontWeight: 'bold', // Set the font-weight to 'bold'
+            fontStyle: 'italic',
+            fontSize: '21px'
+            // Set the font-style to 'italic'
+          }} >Random Chatter</p>
           </div>
           
           <div className='chatbox' ref={chatboxRef} style={{ display: 'flex', flexDirection: 'column' }}>
@@ -290,29 +290,6 @@ fontSize: '21px'
           </div>
           <div className="col-1"></div>
         </div>
-
-          {/* <div className="room-buttons">
-            
-
-            <button onClick={() => random()}>Join Random </button>
-          </div>
-          <div className="message-list">
-            {messages.map((message, index) => (
-              <div key={index} className="message">
-                {message}
-              </div>
-            ))}
-          </div>
-          <div className="input-container">
-            <input
-              type="text"
-              placeholder="Type your message..."
-              value={newMessage}
-              onChange={(e) => setNewMessage(e.target.value)}
-            />
-            <button onClick={sendMessage}>Send</button>
-            {randomUser}
-          </div> */}
         </>
 
       ) : (
