@@ -16,7 +16,6 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 # Dictionary to store active chat rooms
 chat_rooms = {}
 connected_users = [
-
 ]
 
 # Create a dictionary to store mappings of SIDs to rooms
