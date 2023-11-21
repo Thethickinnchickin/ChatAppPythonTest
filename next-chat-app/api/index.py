@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 
 
-# Allow connections from http://localhost:3000
+# Allow connections from http://localhost:3000/
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Dictionary to store active chat rooms
